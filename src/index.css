@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Colors */
+  --color-brand-bg: #FAFAF8;
+  --color-brand-card: #FFFFFF;
+  --color-brand-subtle: #F3F2EF;
+  --color-brand-dark: #0F1117;
+
+  --color-brand-text: #111219;
+  --color-brand-secondary: #5A5F72;
+  --color-brand-muted: #9499AB;
+
+  --color-brand-border-light: #E8E7E3;
+  --color-brand-border-medium: #D0CEC9;
+
+  --color-brand-accent: #1A6BFF;
+  --color-brand-accent-light: #EEF3FF;
+  --color-brand-accent-dark: #0047CC;
+
+  /* Agent Colors */
+  --color-agent-auditor: #E8590C;
+  --color-agent-sentinel: #1A6BFF;
+  --color-agent-architect: #0D9467;
+  --color-agent-strategist: #7C3AED;
+
+  /* Shadows */
+  --shadow-brand-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-brand-hover: 0 4px 12px rgba(0,0,0,0.10), 0 12px 32px rgba(0,0,0,0.06);
+  --shadow-brand-modal: 0 16px 64px rgba(0,0,0,0.18);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-accent/20;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
