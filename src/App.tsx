@@ -342,45 +342,66 @@ const Hero = () => {
 };
 
 const SocialProof = () => {
+  const partners = [
+    "Amazon Seller Central",
+    "Flipkart Seller Hub",
+    "Shopify Plus",
+    "Meta Ads Manager",
+    "Google Ads",
+    "Shiprocket",
+    "Delhivery",
+    "Ecom Express"
+  ];
+
   return (
-    <div className="bg-brand-subtle py-20">
-      <div className="container max-w-7xl mx-auto px-6">
+    <div className="bg-brand-subtle py-24 border-y border-brand-border-light overflow-hidden">
+      <div className="container max-w-7xl mx-auto px-6 mb-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="shrink-0">
-             <span className="text-[12px] font-bold text-brand-muted uppercase tracking-widest block mb-4 lg:mb-0">Trusted by Brands on</span>
+          <div className="shrink-0 text-center lg:text-left">
+             <span className="text-[11px] font-black text-brand-muted uppercase tracking-[0.2em] block mb-2">Institutional Trust</span>
+             <h3 className="text-xl font-serif font-bold text-brand-text">Trusted by Scale Brands on</h3>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 opacity-40 grayscale">
-            <div className="text-xl font-serif font-bold">Amazon Seller</div>
-            <div className="text-xl font-serif font-bold">Flipkart Partner</div>
-            <div className="text-xl font-serif font-bold">Shopify</div>
-            <div className="text-xl font-serif font-bold">Meta Ads</div>
-            <div className="text-xl font-serif font-bold">Google Ads</div>
-          </div>
-
-          <div className="h-px lg:h-12 w-full lg:w-px bg-brand-border-medium" />
+          <div className="h-px lg:h-12 w-full lg:w-px bg-brand-border-medium/50" />
 
           <div className="flex justify-around flex-grow gap-8 w-full">
             <div className="text-center">
-              <div className="text-3xl font-serif font-bold text-brand-text mb-1">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-1">
                 <CountUp end={4.2} duration={1.5} suffix=" Cr" prefix="Rs." />
               </div>
-              <div className="text-xs font-medium text-brand-muted uppercase tracking-wider">Recovered</div>
+              <div className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">Recovered</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-serif font-bold text-brand-text mb-1">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-1">
                 <CountUp end={2800} duration={1.5} suffix="+" />
               </div>
-              <div className="text-xs font-medium text-brand-muted uppercase tracking-wider">Audited Daily</div>
+              <div className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">Audited Daily</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-serif font-bold text-brand-text mb-1">
+              <div className="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-1">
                 <CountUp end={99.4} duration={1.5} suffix="%" />
               </div>
-              <div className="text-xs font-medium text-brand-muted uppercase tracking-wider">Accuracy</div>
+              <div className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">Accuracy</div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Marquee */}
+      <div className="relative flex overflow-hidden group">
+        <div className="flex animate-marquee py-4">
+          {[...partners, ...partners].map((partner, i) => (
+            <div key={i} className="flex items-center justify-center px-12 shrink-0">
+               <span className="text-lg md:text-xl font-serif font-bold text-brand-text/30 hover:text-brand-accent/60 transition-colors cursor-default whitespace-nowrap tracking-tight italic">
+                 {partner}
+               </span>
+            </div>
+          ))}
+        </div>
+        
+        {/* Gradient overlays for smooth fade */}
+        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-brand-subtle to-transparent z-10" />
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-brand-subtle to-transparent z-10" />
       </div>
     </div>
   );
@@ -1048,9 +1069,9 @@ export default function App() {
       <Navbar />
       <Hero />
       <SocialProof />
+      <LiveDemo />
       <ProblemStatement />
       <AgentsShowcase />
-      <LiveDemo />
       <Infrastructure />
       <Pricing />
       <FAQ />
