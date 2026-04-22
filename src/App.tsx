@@ -301,23 +301,23 @@ const Hero = () => {
              
              {/* Content Mockup */}
              <div className="p-4 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="md:col-span-2 space-y-6">
-                  <div className="h-48 bg-brand-accent/5 rounded-xl border border-brand-accent/10 p-6 flex flex-col justify-end">
-                    <div className="text-brand-muted text-xs font-mono mb-2 uppercase tracking-tight">Recovered in Payouts (Last 30 Days)</div>
-                    <div className="text-4xl font-serif font-bold text-brand-accent">Rs. 4,20,530</div>
+                <div className="md:col-span-2 space-y-4 md:space-y-6">
+                  <div className="h-40 md:h-48 bg-brand-accent/5 rounded-xl border border-brand-accent/10 p-4 md:p-6 flex flex-col justify-end">
+                    <div className="text-brand-muted text-[10px] font-mono mb-1 uppercase tracking-tight">Recovered in Payouts</div>
+                    <div className="text-2xl md:text-4xl font-serif font-bold text-brand-accent">Rs. 4,20,530</div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-brand-subtle rounded-lg p-5">
-                      <div className="text-[10px] uppercase font-bold text-brand-muted mb-2">Orders Audited</div>
-                      <div className="text-xl font-bold">2,842</div>
+                  <div className="grid grid-cols-2 gap-3 md:gap-4">
+                    <div className="bg-brand-subtle rounded-lg p-3 md:p-5">
+                      <div className="text-[9px] md:text-[10px] uppercase font-bold text-brand-muted mb-1 md:mb-2">Orders Audited</div>
+                      <div className="text-lg md:text-xl font-bold">2,842</div>
                     </div>
-                    <div className="bg-brand-subtle rounded-lg p-5">
-                      <div className="text-[10px] uppercase font-bold text-brand-muted mb-2">Accuracy</div>
-                      <div className="text-xl font-bold">99.94%</div>
+                    <div className="bg-brand-subtle rounded-lg p-3 md:p-5">
+                      <div className="text-[9px] md:text-[10px] uppercase font-bold text-brand-muted mb-1 md:mb-2">Accuracy</div>
+                      <div className="text-lg md:text-xl font-bold">99.94%</div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-brand-dark p-6 rounded-xl font-mono text-[11px] text-white/50 leading-loose">
+                <div className="bg-brand-dark p-4 md:p-6 rounded-xl font-mono text-[10px] md:text-[11px] text-white/50 leading-loose">
                   <div className="text-white/80 mb-4 border-b border-white/10 pb-2 flex justify-between">
                     <span>AGENT_STATUS</span>
                     <span className="text-emerald-400">ACTIVE</span>
@@ -364,20 +364,20 @@ const SocialProof = () => {
 
           <div className="h-px lg:h-12 w-full lg:w-px bg-brand-border-medium/50" />
 
-          <div className="flex justify-around flex-grow gap-8 w-full">
-            <div className="text-center">
+          <div className="grid grid-cols-2 lg:flex lg:justify-around flex-grow gap-8 w-full">
+            <div className="text-center col-span-1">
               <div className="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-1">
                 <CountUp end={4.2} duration={1.5} suffix=" Cr" prefix="Rs." />
               </div>
               <div className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">Recovered</div>
             </div>
-            <div className="text-center">
+            <div className="text-center col-span-1">
               <div className="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-1">
                 <CountUp end={2800} duration={1.5} suffix="+" />
               </div>
               <div className="text-[10px] font-bold text-brand-muted uppercase tracking-wider">Audited Daily</div>
             </div>
-            <div className="text-center">
+            <div className="text-center col-span-2 lg:col-span-1 border-t lg:border-t-0 pt-6 lg:pt-0 border-brand-border-medium/30">
               <div className="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-1">
                 <CountUp end={99.4} duration={1.5} suffix="%" />
               </div>
@@ -619,11 +619,13 @@ const CommandLogTerminal = () => {
     const agent = rest.split("→")[0] || "";
 
     return (
-      <div className="flex gap-4">
-        <span className="text-white/20 whitespace-nowrap">{timestamp}</span>
-        <span className={cn("w-28 shrink-0 tracking-tight", colorClass)}>{agent}</span>
+      <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 mb-2 sm:mb-0">
+        <div className="flex items-center gap-3">
+          <span className="text-white/20 text-[10px] sm:text-[13px] whitespace-nowrap">{timestamp}</span>
+          <span className={cn("shrink-0 tracking-tight text-[11px] sm:text-[13px]", colorClass)}>{agent}</span>
+        </div>
         <span className={cn(
-          "text-white/80",
+          "text-white/80 text-[12px] sm:text-[13px]",
           content.includes("⚠") && "text-yellow-400",
           content.includes("✗") && "text-red-400",
           content.includes("✓") && "text-emerald-400"
@@ -635,18 +637,18 @@ const CommandLogTerminal = () => {
   };
 
   return (
-    <div className="max-w-[840px] mx-auto bg-[#0A0D11] rounded-2xl overflow-hidden shadow-brand-modal border border-white/10">
-      <div className="bg-[#1A1D24] px-5 py-4 border-b border-white/5 flex items-center justify-between">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-          <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-          <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+    <div className="max-w-[840px] mx-auto bg-[#0A0D11] rounded-2xl overflow-hidden shadow-brand-modal border border-white/10 mx-4 sm:mx-auto">
+      <div className="bg-[#1A1D24] px-4 sm:px-5 py-3 sm:py-4 border-b border-white/5 flex items-center justify-between">
+        <div className="flex gap-1.5 sm:gap-2">
+          <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-[#FF5F57]" />
+          <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-[#FEBC2E]" />
+          <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-[#28C840]" />
         </div>
-        <div className="text-[12px] font-mono uppercase tracking-[0.2em] text-white/30 font-semibold">Vantage OS — Command Feed</div>
-        <div className="w-10" />
+        <div className="text-[10px] sm:text-[12px] font-mono uppercase tracking-[0.1em] sm:tracking-[0.2em] text-white/30 font-semibold truncate px-2">Vantage OS — Command Feed</div>
+        <div className="w-6 sm:w-10" />
       </div>
-      <div className="p-8 font-mono text-[13px] leading-relaxed min-h-[480px]">
-        <div className="space-y-2">
+      <div className="p-4 sm:p-8 font-mono text-[13px] leading-relaxed min-h-[400px] sm:min-h-[480px]">
+        <div className="space-y-4 sm:space-y-2">
           {logs.map((log, i) => (
             <motion.div
               key={i}
@@ -734,27 +736,31 @@ const Infrastructure = () => {
         </div>
 
         <div className="bg-brand-card rounded-2xl shadow-brand-card border border-brand-border-light overflow-hidden">
-          <div className="grid grid-cols-[1.5fr_1fr_1.2fr] border-b border-brand-border-light divide-x divide-brand-border-light">
-            <div className="p-5 font-bold text-xs uppercase text-brand-muted tracking-widest">Feature</div>
-            <div className="p-5 font-bold text-xs uppercase text-brand-muted tracking-widest text-center">Typical SaaS</div>
-            <div className="p-5 font-bold text-xs uppercase text-brand-accent tracking-widest text-center">Vantage OS</div>
-          </div>
-          <div className="divide-y divide-brand-border-light">
-            {comparison.map((row, i) => (
-              <div key={i} className="grid grid-cols-[1.5fr_1fr_1.2fr] divide-x divide-brand-border-light group">
-                <div className="p-5 text-sm font-medium text-brand-text group-hover:bg-brand-subtle/50 transition-colors">{row.feature}</div>
-                <div className="p-5 text-sm text-brand-muted text-center flex items-center justify-center gap-2 group-hover:bg-brand-subtle/50 transition-colors">
-                  <X size={14} className="text-red-500" />
-                  {row.saas}
-                </div>
-                <div className="p-5 text-sm text-brand-accent font-semibold text-center flex items-center justify-center gap-2 bg-brand-accent/5 group-hover:bg-brand-accent/10 transition-colors">
-                  <Check size={14} className="text-emerald-500" />
-                  {row.vantage}
-                </div>
+          <div className="overflow-x-auto">
+            <div className="min-w-[480px]">
+              <div className="grid grid-cols-[1.5fr_1fr_1.2fr] border-b border-brand-border-light divide-x divide-brand-border-light">
+                <div className="p-4 sm:p-5 font-bold text-[10px] sm:text-xs uppercase text-brand-muted tracking-widest">Feature</div>
+                <div className="p-4 sm:p-5 font-bold text-[10px] sm:text-xs uppercase text-brand-muted tracking-widest text-center">Typical SaaS</div>
+                <div className="p-4 sm:p-5 font-bold text-[10px] sm:text-xs uppercase text-brand-accent tracking-widest text-center">Vantage OS</div>
               </div>
-            ))}
+              <div className="divide-y divide-brand-border-light">
+                {comparison.map((row, i) => (
+                  <div key={i} className="grid grid-cols-[1.5fr_1fr_1.2fr] divide-x divide-brand-border-light group">
+                    <div className="p-4 sm:p-5 text-xs sm:text-sm font-medium text-brand-text group-hover:bg-brand-subtle/50 transition-colors">{row.feature}</div>
+                    <div className="p-4 sm:p-5 text-xs sm:text-sm text-brand-muted text-center flex items-center justify-center gap-2 group-hover:bg-brand-subtle/50 transition-colors">
+                      <X size={14} className="text-red-500 shrink-0" />
+                      {row.saas}
+                    </div>
+                    <div className="p-4 sm:p-5 text-xs sm:text-sm text-brand-accent font-semibold text-center flex items-center justify-center gap-2 bg-brand-accent/5 group-hover:bg-brand-accent/10 transition-colors">
+                      <Check size={14} className="text-emerald-500 shrink-0" />
+                      {row.vantage}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="p-6 bg-brand-subtle/30 text-center text-xs text-brand-muted">
+          <div className="p-6 bg-brand-subtle/30 text-center text-[10px] sm:text-xs text-brand-muted">
             100% Data Sovereignty Guaranteed
           </div>
         </div>
